@@ -57,7 +57,7 @@
         var searchResults = $('#searchResults');
         searchResults.empty(); // 기존 검색 결과 지우기
         
-	var resultItem = $(' < h2 > ').text('Search results for: ' + keyword);
+	var resultItem = $('<h2>').text('Search results for: ' + keyword);
         searchResults.append(resultItem); 
 	      
 	resultItem = $('<div class="card-body">').text(foundItem.content);
