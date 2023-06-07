@@ -5,6 +5,33 @@
     <title>Home | YAMT</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="stylesheet" href="./main.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="post-container">
+        <div class="post">
+          <div class="featured-img-container">
+            <img src="./IMG_2060.jpg">
+          </div>
+        </div>
+        <div class="post">
+          <p> Welcome to YAMT - Yet Another Minimal Theme. YAMT is a minimal Jekyll theme focused on simplicity and ease-of-use. It has great modularity, allowing you to easily decide what you actually want on your website. Features Installation Customization Features Minimal and clean design. Fully modular: activate and load only what... 
+          </p>
+        </div>
+        <div class="post">
+          <form id="searchForm">
+            <div class="input-group">
+              <input type="text" class="form-control" id="searchInput" placeholder="Enter a keyword">
+              <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+          </form>
+        </div>
+        <div class="post" id="searchResults">
+          <h2 id="post-title">지잡대</h2>
+          <p>지방 소재의 잡다한 대학'이라는 의미의, 지방 대학교를 비하하는 명칭이다. 비록 "지잡대"라는 단어 자체가 지방을 포함하고는 있으나, 역량이 뒤떨어지는 대학교를 포괄하는 표현으로도 사용되고 있다.과거에는, 그리고 대학교가 아닌 중학교나 고등학교를 대상으로는 똥통학교라는 표현도 자주 사용되었으며, 용례 </p>
+        </div>
+      </div>
+    </div>
     <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -38,33 +65,6 @@
       
       // 검색 폼 제출 이벤트 핸들러 등록
       $('#searchForm').submit(handleSearch);
-    </script>
-  </head>
-  <body>
-    <div class="container">
-      <div class="post-container">
-        <div class="post">
-          <div class="featured-img-container">
-            <img src="./IMG_2060.jpg">
-          </div>
-        </div>
-        <div class="post">
-          <p> Welcome to YAMT - Yet Another Minimal Theme. YAMT is a minimal Jekyll theme focused on simplicity and ease-of-use. It has great modularity, allowing you to easily decide what you actually want on your website. Features Installation Customization Features Minimal and clean design. Fully modular: activate and load only what... 
-          </p>
-        </div>
-        <div class="post">
-          <form id="searchForm">
-            <div class="input-group">
-              <input type="text" class="form-control" id="searchInput" placeholder="Enter a keyword">
-              <button type="submit" class="btn btn-primary">Search</button>
-            </div>
-          </form>
-        </div>
-        <div class="post" id="searchResults">
-          <h2 id="post-title">지잡대</h2>
-          <p>지방 소재의 잡다한 대학'이라는 의미의, 지방 대학교를 비하하는 명칭이다. 비록 "지잡대"라는 단어 자체가 지방을 포함하고는 있으나, 역량이 뒤떨어지는 대학교를 포괄하는 표현으로도 사용되고 있다.과거에는, 그리고 대학교가 아닌 중학교나 고등학교를 대상으로는 똥통학교라는 표현도 자주 사용되었으며, 용례 </p>
-        </div>
-      </div>
-    </div>
+    </script>	  
   </body>
 </html>
