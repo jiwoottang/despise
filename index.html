@@ -1,23 +1,48 @@
 <html>
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> YAMT | Yet Another Minimal Theme </title>
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <title>Home | YAMT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      var aversionDatas;
+      fetch('/contents.json').then(response => response.json()).then(data => {
+        // JSON 데이터를 사용하여 작업 수행
+        aversionDatas = data;
+      }).catch(error => {
+        // 오류 처리
+        console.error(error);
+      });
+	    
+      // 검색어 입력 폼 제출 시 검색 결과를 처리하는 함수
+      function handleSearch(event) {
+        event.preventDefault(); // 폼 제출 기본 동작 방지
+        var keyword = $('#searchInput').val(); // 입력된 검색어 가져오기
+        // 실제로는 여기서 검색 요청을 서버에 보내고, 받은 결과를 동적으로 처리할 수 있습니다.
+        // 여기서는 간단하게 검색어를 검색 결과로 출력하는 예시를 작성합니다.
+        var searchResults = $('#searchResults');
+        searchResults.empty(); // 기존 검색 결과 지우기
+        var resultItem = $(' < h2 > ').text('Search results for: ' + keyword);
+        searchResults.append(resultItem); resultItem = $(' < div class = "card-body" > ').text(foundItem.content);
+        searchResults.append($(' < div class = "card" > ').append(resultItem));
+        searchResults.append(resultItem);
+      }
+      
+      // 검색 폼 제출 이벤트 핸들러 등록
+      $('#searchForm').submit(handleSearch);
+    </script>
   </head>
   <body>
     <div class="container">
-      <header id="header">
-        <div id="site_title">
-          <a href="https://pandasekh.github.io/Jekyll-YAMT//Jekyll-YAMT/">
-            <h1>YAMT</h1>
-          </a>
-          <h2> Yet Another Minimal Theme </h2>
-        </div>
-      </header>
       <div class="post-container">
+        <div class="post">
+          <div class="featured-img-container">
+            <img src="./IMG_2060.jpg">
+          </div>
+        </div>
         <div class="post">
           <p> Welcome to YAMT - Yet Another Minimal Theme. YAMT is a minimal Jekyll theme focused on simplicity and ease-of-use. It has great modularity, allowing you to easily decide what you actually want on your website. Features Installation Customization Features Minimal and clean design. Fully modular: activate and load only what... <span class="continue-reading">
               <a href="/Jekyll-YAMT/2020/05/21/this-is-yamt.html">Continue reading...</a>
@@ -25,80 +50,90 @@
           </p>
         </div>
         <div class="post">
-          <div class="featured-img-container">
-            <img src="https://www.shutterstock.com/image-vector/world-internet-social-there-still-260nw-2026714322.jpg">
-          </div>
-          
+          <form id="searchForm">
+            <div class="input-group">
+              <input type="text" class="form-control" id="searchInput" placeholder="Enter a keyword">
+              <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+          </form>
         </div>
-        <div class="post">
+        <div class="post" id="searchResults">
           <h2 id="post-title">지잡대</h2>
-          <p>지방 소재의 잡다한 대학'이라는 의미의, 지방 대학교를 비하하는 명칭이다. 비록 "지잡대"라는 단어 자체가 지방을 포함하고는 있으나, 역량이 뒤떨어지는 대학교를 포괄하는 표현으로도 사용되고 있다.과거에는, 그리고 대학교가 아닌 중학교나 고등학교를 대상으로는 똥통학교라는 표현도 자주 사용되었으며, 용례
-          </p>
+          <p>지방 소재의 잡다한 대학'이라는 의미의, 지방 대학교를 비하하는 명칭이다. 비록 "지잡대"라는 단어 자체가 지방을 포함하고는 있으나, 역량이 뒤떨어지는 대학교를 포괄하는 표현으로도 사용되고 있다.과거에는, 그리고 대학교가 아닌 중학교나 고등학교를 대상으로는 똥통학교라는 표현도 자주 사용되었으며, 용례 </p>
         </div>
       </div>
     </div>
-  
-<style>
-a {
-    text-decoration: none
-}
+    <style>
+      a {
+        text-decoration: none
+      }
 
-a:hover {
-	text-decoration: none;
-    font-style: inherit;
-}
+      a:hover {
+        text-decoration: none;
+        font-style: inherit;
+      }
 
-.archive-link {
-    text-decoration: none;
-    color: black;
-    font-style: italic;
-    font-size: 1.5rem
-}
+      .archive-link {
+        text-decoration: none;
+        color: black;
+        font-style: italic;
+        font-size: 1.5rem
+      }
 
-.archive-link:hover {
-    text-decoration: underline
-}
+      .archive-link:hover {
+        text-decoration: underline
+      }
 
-.container {
-    margin-left: auto;
-    margin-right: auto;
-    width: 700px;
-}
+      .container {
+        margin-left: auto;
+        margin-right: auto;
+        width: 700px;
+      }
 
-header {
-    margin-left: auto;
-    margin-right: auto;
-    width: 550px;
-    overflow: hidden;
-}
+      header {
+        margin-left: auto;
+        margin-right: auto;
+        width: 550px;
+        overflow: hidden;
+      }
 
-header #site_title {
-    text-align: center;
-    color: black
-}
+      header #site_title {
+        text-align: center;
+        color: black
+      }
 
-h1,h2,h3,h4,h5,h6 {
-    margin-bottom: 10px;
-    text-decoration: none;
-    color: black
-}
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin-bottom: 10px;
+        text-decoration: none;
+        color: black
+      }
 
-h1 a,h2 a,h3 a,h4 a,h5 a,h6 a {
-    text-decoration: none;
-    color: black
-}
+      h1 a,
+      h2 a,
+      h3 a,
+      h4 a,
+      h5 a,
+      h6 a {
+        text-decoration: none;
+        color: black
+      }
 
-img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 15px;
-    max-width: 100%;
-    -webkit-border-radius: 7px;
-    -moz-border-radius: 7px;
-    -khtml-border-radius: 7px;
-    border-radius: 7px
-}
-</style>
-
-</body></html>
+      img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 15px;
+        max-width: 100%;
+        -webkit-border-radius: 7px;
+        -moz-border-radius: 7px;
+        -khtml-border-radius: 7px;
+        border-radius: 7px
+      }
+    </style>
+  </body>
+</html>
