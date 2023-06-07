@@ -60,10 +60,8 @@
 	var resultItem = $(' < h2 > ').text('Search results for: ' + keyword);
         searchResults.append(resultItem); 
 	      
-	resultItem = $(' < div class = "card-body" > ').text(foundItem.content);
-        searchResults.append($(' < div class = "card" > ').append(resultItem));
-        
-	searchResults.append(resultItem);
+	resultItem = $('<div class="card-body">').text(foundItem.content);
+        searchResults.append($('<div class="card">').append(resultItem));
       }
       
       // 검색 폼 제출 이벤트 핸들러 등록
