@@ -60,8 +60,13 @@
 	var resultItem = $('<h2>').text('Search results for: ' + keyword);
         searchResults.append(resultItem); 
 	
-	resultItem = $('<div class="card-body">').text(foundItem.content);
-        searchResults.append($('<div class="card">').append(resultItem));
+	if (foundItem) {
+	  resultItem = $('<div class="card-body">').text(foundItem.content);
+	} else {
+	  resultItem = $('<div class="card-body">').text('검색된 결과가 없습니다.');
+	}
+        
+	searchResults.append($('<div class="card">').append(resultItem));
       }
 	    
       // 검색 폼 제출 이벤트 핸들러 등록
